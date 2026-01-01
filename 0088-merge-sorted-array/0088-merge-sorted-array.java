@@ -1,3 +1,5 @@
+//using comparing last index of nums1[] and first index of the nums2[]
+//use shell or gap method
 // using two pointer
 class Solution {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
