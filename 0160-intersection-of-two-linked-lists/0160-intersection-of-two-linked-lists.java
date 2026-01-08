@@ -16,7 +16,9 @@ public class Solution {
 
         ListNode a=headA;
         ListNode b=headB;
+           // if a & b have different len,then we will stop the loop after the second iteration
          while(a!=b){
+               //for the end of the first iteration we just rest the pointer to the head of the another LinkedList
             a=a==null ? headB:a.next;
             b=b==null ? headA:b.next;
 
