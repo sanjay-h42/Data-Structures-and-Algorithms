@@ -26,7 +26,7 @@ class Solution {
         k=k%len;
         k=len-k;
         
-        while(k-->0) curr=curr.next;
+        while(k-- > 0) curr=curr.next;
 
         // now the curr pointing at head and break the connection
         head=curr.next;
