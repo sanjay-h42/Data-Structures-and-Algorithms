@@ -1,21 +1,20 @@
-// The algorithm does not need to know counts, it only relies on the fact that the majority element cannot be cancelled completely.
-
-// Moore's Voting Algorithm
 class Solution {
     public int majorityElement(int[] nums) {
+        int candidate=0;
         int count=0;
-        int majorityElement=0;
-        for(int element : nums){
+        for(int num:nums){
             if(count==0){
-                majorityElement=element;
+                candidate=num;
             }
-            if(majorityElement==element){
+
+            if(num==candidate){
                 count++;
             }
             else{
                 count--;
             }
+           
         }
-        return majorityElement;
-    }
+ return candidate;
+     }
 }
