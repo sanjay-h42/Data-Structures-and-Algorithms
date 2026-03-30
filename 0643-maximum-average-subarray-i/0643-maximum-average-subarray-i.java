@@ -4,12 +4,13 @@ class Solution {
         for(int i=0;i<k;i++){
             sum+=nums[i];
         }
-        int maxSum=sum;
+        int MaxSum=sum;
+
         for(int i=k;i<nums.length;i++){
             sum+=nums[i];
             sum-=nums[i-k];
-            maxSum=Math.max(maxSum,sum);
+            MaxSum=Math.max(MaxSum,sum);
         }
-        return (double)maxSum/k;
+        return (double)MaxSum/k;
     }
 }
