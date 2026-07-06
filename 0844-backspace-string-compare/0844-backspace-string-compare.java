@@ -1,28 +1,48 @@
 class Solution {
     public boolean backspaceCompare(String s, String t) {
-    Stack<Character>stack=new Stack<>();
-    Stack<Character>stack1=new Stack<>();
-    for(char ch:s.toCharArray()){
-        if(ch=='#'){
-            if(!stack.isEmpty()){
-                stack.pop();
+       int i=s.length()-1,j=t.length()-1;
+       int skipS=0,skipT=0;
+       while(i>=0 || j>=0){
+        while(i>=0){
+            if(s.charAt(i)=='#'){
+                skipS++;
+                i--;
             }
-        }
-        else{
-            stack.push(ch);
-        }
-    }
+            else if(skipS>0){
+                skipS--;
+                i--;
+            }
+            else{
+                break;
+            }
 
-    for(char ch:t.toCharArray()){
-        if(ch=='#'){
-            if(!stack1.isEmpty()){
-                stack1.pop();
+        }
+
+         while(j>=0){
+            if(t.charAt(j)=='#'){
+                skipT++;
+                j--;
             }
+            else if(skipT>0){
+                skipT--;
+                j--;
+            }
+            else{
+                break;
+            }
+
         }
-        else{
-            stack1.push(ch);
+
+        if(i>=0 && j>=0 && s.charAt(i)!=t.charAt(j)){
+            return false;
         }
-    }
-    return stack.equals(stack1);
+
+        else if((i>=0)!=(j>=0)){
+            return false;
+        }
+        i--;
+        j--;
+       }
+       return true;
     }
 }
